@@ -1,4 +1,4 @@
-# Health Care app
+# Healthcare app
 
 You are making a react/node web app for a patient, where they can create an account, and see their documents.
 
@@ -13,7 +13,12 @@ You are making a react/node web app for a patient, where they can create an acco
 - create a pull request with your completed assignment
 - if you're using a database, or any other .env varialbes write them in readme so that we can test run your code.
 
+### Design: 
 
+
+
+
+![Design](./design/design.svg)
 
 ## Frontend
 
@@ -40,10 +45,10 @@ You are making a react/node web app for a patient, where they can create an acco
 
 ## Backend
 
-Your backend should be responsible for authenticated a user and providing the data to show in frontend via proper protected routes
+Your backend should be responsible for authenticating a user and providing the data to show in frontend via proper protected routes
 
 - any data that you show in frontend should come from this backend, and you must not store any json file in frontend which you'll use to show any files
-- make sure a user is not able to access any routes without a proper login.
+- make sure a user is not able to access any routes without an active user session.
 
 ### Routes
 
@@ -57,9 +62,11 @@ Your backend should be responsible for authenticated a user and providing the da
 * `/auth/verify`
     - Verify is going to be a get route which the frontend would hit to make sure whether the user is authenticated or not, the frontend is going to serve the private pages only if this verify route gives a 200 status code and some user info like username and id for the frontend to show on header or something similar.
 
-* `/api/user`
+* `/api/user/profile`
    - This route should return the data you’re provided in the json file, it’s up to you whether you wanna read the json file and send it or store that json file in mongo make a mongoose schema and then serve it to frontend
    - But make sure that this route should not be accessible to a user who doesn’t have an active session.
+* `/api/user/update`
+    - make suitable routes for handling the user update data
 ### ErrorHandling
    - Make sure that hitting on any of the routes shouldn’t crash the web server
   -  Make sure to handle 409 errors if a user tries to signup with an existing name 
@@ -75,7 +82,7 @@ Your backend should be responsible for authenticated a user and providing the da
 - Ideally you should use mongodb or any no-sql database for storing user credentials
 - It is recommended to use mongoose ODM to handle mongodb queries for its schema validation.
 - `Models`: Ideally you should have two models, 
-    * `User`: User model for storing user credentials including username, email, passwords, (phone number if you want to )
+    * `User`: User model for storing user credentials including username, email, passwords, (phone number if you want to ) and demographics (dob and gender)
     * `Timeline`: The timeline should have two keys  
         - userID: id of the user who owns this document
        - Data: the actual timeline data, (you’ll get this from the given json file)
@@ -85,7 +92,7 @@ Your backend should be responsible for authenticated a user and providing the da
    - Use a library like winston or anything similar to keep track of logs every time a user logs in or logs out and if the server throws an error.
    - Try to make a middleware that logs out these routes rather than calling the log function in the route controller itself.
 ### Test:
-- It would be really great if you can write unit tests for your backend components, it’s completely optional, but if you can try using either of the testing libraries from mocha, jest or supertest.
+- It would be really great if you can write unit tests for your backend components, it’s completely optional, but if you can try using either of the testing libraries from mocha, jest and supertest.
 
 
 Feel free to use eventEmitter or any special modules you find necessary.
