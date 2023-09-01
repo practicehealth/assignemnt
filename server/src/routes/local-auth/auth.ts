@@ -45,6 +45,8 @@ authRoutes.post( "/login", async ( req: IRequest, res: Response ) => {
     // console.log(req.sessionID);
 
     var loginDets:IUser = req.body as IUser;
+    // console.log(loginDets);
+    
     if ( loginDets.userName == "" || loginDets.password == ""  ) {
         res.status(422).send( {ok: false, msg: "Credentials missing" } );
         return;
@@ -58,47 +60,49 @@ authRoutes.post( "/login", async ( req: IRequest, res: Response ) => {
             res.status(409).send( { ok: false, msg: "Username does not exists"});
             return;
         }
+        const passFromFe:string = loginDets.password;
+        const passFromBe:string = existingUsers[0].password;
+
+        // console.log(passFromFe+" "+passFromBe);
+        
+
+        if ( PasswordUtils.CheckPassword(passFromFe, passFromBe) ){
+
+
+            const respUserObject:any = existingUsers[0];
+
+            req.session.user = {
+                userName: respUserObject.userName, 
+                email: respUserObject.email,
+            }
+
+
+            res.status(200).send( { ok:true, msg:"Login Successful", data: {
+
+                userName: respUserObject.userName,
+                email: respUserObject.email,
+                firstName: respUserObject.firstName,
+                middleName: respUserObject.middleName,
+                lastName: respUserObject.lastName,
+                dateOfBirth: respUserObject.dateOfBirth,
+                gender: respUserObject.gender,
+                phoneNumber: respUserObject.phoneNumber,
+
+            } });
+            return;
+
+        } else {
+
+            res.status(401).send( {ok:false, msg:"Login Unsuccessful. Wrong Password" });
+            return;
+
+        }
 
     } catch ( err ) {
         res.status(500).send( {ok:false, msg:"Internal Server Error", err: err} );
         return;
     }
 
-    const passFromFe:string = loginDets.password;
-    const passFromBe:string = existingUsers[0].password;
-
-
-    if ( PasswordUtils.CheckPassword(passFromFe, passFromBe) ){
-
-
-        const respUserObject:any = existingUsers[0];
-
-        req.session.user = {
-            userName: respUserObject.userName, 
-            email: respUserObject.email,
-        }
-
-
-        res.status(200).send( { ok:true, msg:"Login Successful", data: {
-
-            userName: respUserObject.userName,
-            email: respUserObject.email,
-            firstName: respUserObject.firstName,
-            middleName: respUserObject.middleName,
-            lastName: respUserObject.lastName,
-            dateOfBirth: respUserObject.dateOfBirth,
-            gender: respUserObject.gender,
-            phoneNumber: respUserObject.phoneNumber,
-
-        } });
-        return;
-
-    } else {
-
-        res.status(401).send( {ok:false, msg:"Login Unsuccessful. Wrong Password" });
-        return;
-
-    }
 
 })
 
