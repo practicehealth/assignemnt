@@ -1,4 +1,4 @@
-# Healthcare app
+# Health Care App
 
 You are making a react/node web app for a patient, where they can create an account, and see their documents.
 
