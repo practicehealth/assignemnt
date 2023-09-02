@@ -9,7 +9,7 @@ function Header({user} : { user?:string }) {
 
 
     return (
-        <div className="flex px-10 h-16 border border-b-2 border-b-secondary justify-between items-center"> 
+        <div className="flex px-10 min-h-[60px] border border-b-2 border-b-secondary justify-between items-center"> 
             <div className="left">
                 {
                     user && 

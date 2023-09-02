@@ -1,9 +1,34 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Header from "../components/Header"
 import SignupForm from "../components/SignupForm"
+import { useEffect } from "react";
+import axios from "axios";
+import { getUser } from "../utils/utils";
 
 function Signup() {
 
+
+    const navigateTo = useNavigate();
+
+    useEffect(()=>{
+        document.title = "SignUp";
+        async function verifyAndFetch() {
+            try {
+                await axios.get("/auth/verify" );
+                if ( getUser() != undefined ) {
+                    navigateTo("/");
+                    return;
+                }
+            } catch ( err:any ) {
+                // console.log(err.message);
+                
+                localStorage.removeItem("user");
+                return;
+                // alert(err.message);
+            }
+        }
+        verifyAndFetch();
+    })
 
   return (
     <div className="pageDiv">

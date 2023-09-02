@@ -10,6 +10,11 @@ import {
     XCircle,
     AreaChart,
     Database,
+    ChevronLeft,
+    ChevronRight,
+    Link,
+    Trash2,
+    Pencil,
 } from 'lucide-react';
 
 
@@ -25,4 +30,9 @@ export const Icons = {
     'closeButton': XCircle,
     'summary': AreaChart,
     'database': Database,
+    'leftMove': ChevronLeft,
+    'rightMove': ChevronRight,
+    'linked': Link,
+    'delete': Trash2,
+    'pencil': Pencil,
 }

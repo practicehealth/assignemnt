@@ -4,6 +4,11 @@ export interface Err {
     response:any;
 }
 
+export interface ReactSelect<T> {
+    value: T,
+    label: string,
+}
+
 export interface CategoryProps {
   icon: LucideIcon,
   title: string,
@@ -15,9 +20,9 @@ export interface Timeline {
     id: number ,
     year: number,
     eventType: string,
-    references: any[],
+    references: number[],
     reference: number,
-    serviceDate: Date,
+    serviceDate: string,
     resourceType: string,
     eventHeader: string,
     provider: string,
@@ -36,4 +41,10 @@ export interface User {
     dateOfBirth?: Date;
     gender?: string;
     phoneNumber?: string;
+}
+
+export interface CarousalData {
+    data: Timeline[],
+    years: ReactSelect<number>[],
+    eventTypes: ReactSelect<string>[],
 }

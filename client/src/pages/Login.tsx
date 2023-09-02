@@ -3,6 +3,7 @@ import Header from "../components/Header"
 import LoginForm from "../components/LoginForm"
 import { getUser } from "../utils/utils"
 import { useEffect } from "react";
+import axios from "axios";
 
 function Login() {
     
@@ -10,9 +11,23 @@ function Login() {
     const navigateTo = useNavigate();
 
     useEffect(()=>{
-        if ( getUser() != undefined ){
-            navigateTo("/")
+        document.title = "Login";
+        async function verifyAndFetch() {
+            try {
+                await axios.get("/auth/verify" );
+                if ( getUser() != undefined ) {
+                    navigateTo("/");
+                    return;
+                }
+            } catch ( err:any ) {
+                // console.log(err.message);
+                
+                localStorage.removeItem("user");
+                return;
+                // alert(err.message);
+            }
         }
+        verifyAndFetch();
     })
 
 
