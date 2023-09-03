@@ -135,4 +135,98 @@ authRoutes.get("/verify", async(req:IRequest, res) => {
 })
 
 
+// Forgot Password
+authRoutes.post( "/forgotpwd", async( req, res) => {
+
+    if ( req.body.userName == "" || req.body.email == "" || req.body.password == "" ) {
+        res.status(422).send( {ok: false, msg: "Credentials missing" } );
+        return;
+    }
+
+    const formDets = req.body;
+    // console.log(formDets);
+    
+
+    try {
+
+        const dbResult:IUser[] = await User.find({ userName: formDets.userName, email: formDets.email });
+        if ( dbResult.length != 1 ) {
+
+            res.status(409).send( { ok: false, msg: "Invalid Credentials"});
+            return;
+
+        }
+
+        const hashedPassword = PasswordUtils.HashPassword( formDets.password );
+
+        await User.updateOne( { userName: formDets.userName },  { "$set" : { password: hashedPassword } } );
+        res.status(200).send( { ok: true, msg: "Password Successfully Updated"});
+        return;
+
+    } catch ( err ) {
+        res.status(500).send( {ok:false, msg:"Internal Server Error", err: err} );
+        return;
+    }
+})
+
+authRoutes.delete( "/delact", async( req, res ) => {
+
+    const userName = req.query.userName;
+    if ( !userName || userName == "" ) {
+        res.status(409).send( { ok: false, msg: "Invalid Credentials"});
+        return;
+    }
+
+    try {
+
+        const dbResult: IUser[] = await User.find( { userName: userName });
+        if ( dbResult.length != 1 ) {
+
+            res.status(409).send( { ok: false, msg: "Invalid Credentials"});
+            return;
+
+        }
+
+        if (req.session) {
+            req.session.destroy( (err:Error) => { console.log(err); return; } );
+        }
+
+        await User.deleteOne( { userName: userName });
+        res.status(200).send( { ok: true, msg: "User deleted Successfully"});
+
+        
+    } catch ( err ) {
+
+        res.status(500).send( {ok:false, msg:"Internal Server Error", err: err} );
+        return;
+        
+    }
+})
+
+
 export default authRoutes;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,3 +6,10 @@ export function getUser(){
         return JSON.parse(userString);
     }
 }
+
+export function removeUser(){
+    if ( getUser() ) {
+        localStorage.removeItem("user");
+    }
+    return;
+}

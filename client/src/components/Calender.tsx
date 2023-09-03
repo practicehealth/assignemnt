@@ -15,7 +15,7 @@ function Calender( { data } : { data: string } ) {
     else suff = suffix[date%10-1];
 
     return (
-        <div className=" w-36 text-center border border-black rounded-lg overflow-hidden">
+        <div className=" w-36 text-center border shadow rounded-lg overflow-hidden">
             <div className="h-6 bg-accent text-center w-full">
                 { year }
             </div>

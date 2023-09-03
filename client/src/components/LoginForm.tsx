@@ -47,7 +47,7 @@ function LoginForm() {
             <input placeholder='Username' onChange={(e)=>setUserName(e.target.value)} type='text' className='px-2 py-1 mb-4 rounded-md bg-neutral-200'></input>
             <input placeholder='Password' onChange={(e)=>setPass(e.target.value)} type='password' className='px-2 py-1 mb-4 rounded-md bg-neutral-200'></input>
             <div className='flex w-full justify-between items-center content-center'>
-                <Link to='/signup' className='pl-1 text-neutral-500 text-sm'>Forgot Password?</Link>
+                <Link to='/forgotpwd' className='pl-1 text-neutral-500 text-sm'>Forgot Password?</Link>
                 <button onClick={handleLogin} className='bg-primary  min-w-[100px] rounded py-2  w-20  place-items-end '>Sign In</button>
             </div>
         </div>

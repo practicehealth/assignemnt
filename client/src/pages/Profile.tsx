@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ChangeEvent, useEffect, useState } from "react";
-import { getUser } from "../utils/utils";
-import { useNavigate } from "react-router-dom";
+import { getUser, removeUser } from "../utils/utils";
+import { Link, useNavigate } from "react-router-dom";
 import { User } from "../../types";
 import Header from "../components/Header";
 import {Icons} from "../components/Icons";
@@ -10,7 +10,7 @@ import { PencilIcon } from "lucide-react";
 function Profile() {
 
     const navigateTo = useNavigate();
-    const cardClassName = "mx-6 my-3 w-[1000px] border border-primary px-10 py-8 rounded-lg bg-[#f8f9fa]";
+    const cardClassName = "mx-6 my-3 w-[1000px] border border-neutral-200 shadow-xl px-10 py-8 rounded-lg bg-[#f8f9fa]";
     const genderOptions = [
         { label: "Male", value: "Male" },
         { label: "Female", value: "Female"},
@@ -24,8 +24,14 @@ function Profile() {
 
     async function handleLogout(){
         await axios.delete("/auth/logout");
-        localStorage.removeItem("user");
+        removeUser()
         navigateTo("/login")
+    }
+     
+    async function handleChangePwd() {
+        await axios.delete("/auth/logout");
+        removeUser()
+        navigateTo("/forgotpwd")
     }
 
     async function handleSubmit() {
@@ -53,14 +59,12 @@ function Profile() {
             try {
                 await axios.get("/auth/verify" );
                 setUser(getUser());
+                setDateVal(getUser().dateOfBirth);
             } catch ( err ) {
                 navigateTo("/login");
             }
         }
         verify();
-        if ( user?.dateOfBirth ) {
-            setDateVal(user.dateOfBirth.toDateString());
-        }
     }, []);
 
   return (
@@ -77,25 +81,25 @@ function Profile() {
                 <div className={cardClassName}>
                     <div className="flex w-full justify-between items-center mb-4">
                         <p className="text-2xl font-medium">Account</p>
-                        <div className="flex items-center cursor-pointer">
+                        <Link to="/deleteact" className="flex items-center cursor-pointer">
                             <p className="mx-2 text-sm text-red-500">Delete Account</p>
                             <DeleteIcon width='15' height='15' color="red" />
-                        </div>
+                        </Link>
                     </div>
                     <div className="flex flex-col my-4">
                         <p className="text-sm mb-2">Username</p>
-                        <input className="border border-primary rounded-lg py-2 px-2 bg-[#f8f9fa]" value={ user.userName } />
+                        <input className="border border-primary rounded-lg py-2 px-2 bg-[#f8f9fa]" defaultValue={ user.userName } />
                     </div>
                     <div className="flex flex-col my-4">
                         <p className="text-sm mb-2">Email id</p>
-                        <input className="border border-primary rounded-lg py-2 px-2 bg-[#f8f9fa]" value={ user.email } />
+                        <input className="border border-primary rounded-lg py-2 px-2 bg-[#f8f9fa]" defaultValue={ user.email } />
                     </div>
                     <div className="flex flex-col my-4">
                         <p className="text-sm mb-2">Password</p>
-                        <input className="border border-primary rounded-lg py-2 px-2 bg-[#f8f9fa]" value="*******" />
+                        <input className="border border-primary rounded-lg py-2 px-2 bg-[#f8f9fa]" defaultValue="*******" />
                     </div>
                     <div className="flex w-full justify-between">
-                        <button className="text-sm mx-2">Change Password</button>
+                        <button onClick={ handleChangePwd } className="text-sm mx-2">Change Password</button>
                         <button className="px-3 py-2 bg-primary text-white rounded-lg cursor-pointer" onClick={handleLogout}>Logout</button>
                     </div>
                 </div>
@@ -139,7 +143,7 @@ function Profile() {
                                 disabled={ normalMode } className="border border-primary rounded-lg py-3 px-2 bg-white" >
                                 {
                                     genderOptions.map((opt) => {
-                                        return <option value={opt.value}>{opt.label}</option>
+                                        return <option key={opt.value} value={opt.value}>{opt.label}</option>
                                     })
                                 }
                             </select>
@@ -152,7 +156,7 @@ function Profile() {
                             disabled={ normalMode } className="border border-primary rounded-lg py-2 px-2" value={ user.phoneNumber } placeholder="Yet to fill" />
                     </div>
                     <div className="flex w-full justify-end">
-                        <button onClick={ handleSubmit } disabled={ normalMode } className={ !normalMode? "px-2 py-2 bg-primary rounded-lg text-white cursor-pointer" : "px-2 py-2 bg-neutral-300 rounded-lg cursor-default"} >Edit Account</button>
+                        <button onClick={ handleSubmit } disabled={ normalMode } className={ !normalMode? "px-2 py-2 bg-primary rounded-lg text-white cursor-pointer" : "px-2 py-2 bg-neutral-300 rounded-lg cursor-default"} >Confirm Edit</button>
                     </div>
                 </div>
                 </div>

@@ -67,10 +67,10 @@ function Carousal( { data, showCarModal } : {  data: CarousalData, showCarModal:
 
 
     return(
-        <div className=" flex flex-col w-[500px] h-[400px] border border-primary mr-10 rounded-lg">
+        <div className=" flex flex-col w-[500px] h-[400px] border border-neutral-200 shadow-lg mr-10 rounded-lg">
             <div className="carHead flex flex-col mx-5 ">
                 <div className="flex my-2 justify-between">
-                    <p className=" text-xl font-semibold">Timeline Event</p>
+                    <p className=" text-xl font-semibold ml-4">Timeline Event</p>
                     <button onClick={ clearFilters } className="text-sm">Clear Filters</button>
                 </div>
                 <div className="carFilters flex justify-between mx-4">
