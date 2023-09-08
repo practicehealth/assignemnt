@@ -5,6 +5,8 @@ import logger from "./middleware/logger";
 import session from "./middleware/session";
 import router from "./routes";
 import Logging from "./lib/color";
+import cors from "./config/cors";
+import cookieParser from "cookie-parser"
 
 const PORT = config.get<number>("PORT");
 const app = express();
@@ -12,6 +14,8 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser())
+app.use(cors)
 app.use(logger);
 app.use(session);
 

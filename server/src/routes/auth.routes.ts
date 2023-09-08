@@ -1,7 +1,9 @@
 import { Request, Response, Router } from "express";
 import {
+  ForgetPasswordType,
   UserLoginType,
   UserSignUpType,
+  forgetPasswordSchema,
   userLoginSchema,
   userSignUpSchema,
 } from "../schema/user.schema";
@@ -26,7 +28,7 @@ router.post(
     const userFound = await User.findOne({ userName });
     if (userFound) {
       res.status(409).json({
-        error: "User Already exists!",
+        message: "Username Already exists!",
       });
       return;
     }
@@ -50,15 +52,15 @@ router.post(
     const { userName, password } = req.body;
     const userFound = await User.findOne({ userName });
     if (!userFound) {
-      res.send(400).json({
-        message: `${userName} not found`,
+      res.status(400).json({
+        message: `${userName} user not found`,
       });
       return;
     }
     const isPassMatched = await bcrypt.compare(password, userFound.password);
     if (!isPassMatched) {
       res.status(401).json({
-        message: `${userName} password incorrect`,
+        message: `password is incorrect`,
       });
       return;
     }
@@ -70,6 +72,43 @@ router.post(
     });
   }
 );
+router.post(
+  "/forgetPassword",
+  validateResources(forgetPasswordSchema),
+  async (req: Request<{}, {}, ForgetPasswordType>, res: Response) => {
+    const { userName, password, newPassword } = req.body;
+    const userFound = await User.findOne({ userName });
+    if (!userFound) {
+      res.status(400).json({
+        message: `${userName} user not found`,
+      });
+      return;
+    }
+    const isPassMatched = await bcrypt.compare(password, userFound.password);
+    if (!isPassMatched) {
+      res.status(401).json({
+        message: `password is incorrect`,
+      });
+      return;
+    }
+    const np = await toHash(newPassword);
+    const updatedUser = await User.findOneAndUpdate(
+      { userName },
+      { password: np },
+      { new: true }
+    );
+    if (updatedUser) {
+      res.status(200).json({
+        message: `Password updated successfully`,
+      });
+      return;
+    }
+    res.status(500).json({
+      message: "Internal server error",
+    });
+  }
+);
+
 router.get("/logout", (req: Request, res: Response) => {
   req.session.destroy(function (err) {
     if (err) {
@@ -91,7 +130,7 @@ router.get("/verify", (req: Request, res: Response) => {
   }
   res.status(200).send({
     userInfo: session.userSession,
-  }); 
+  });
 });
 
 export default router;

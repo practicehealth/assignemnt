@@ -4,6 +4,7 @@ import { UserSignUpType } from "../schema/user.schema";
 export interface newUserSession {
   userName: string;
   email: string;
+  authorization: boolean
 }
 
 interface UserDoc extends Document, UserSignUpType {
@@ -54,6 +55,7 @@ UserSchema.methods.userSessionData =
     return {
       email: this.email,
       userName: this.userName,
+      authorization: true
     };
   };
 

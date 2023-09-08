@@ -40,3 +40,19 @@ export const userLoginSchema = object({
 });
 
 export type UserLoginType = TypeOf<typeof userLoginSchema>["body"];
+
+export const forgetPasswordSchema = object({
+  body: object({
+    userName: string({
+      required_error: "Username is required.",
+    }),
+    password: string({
+      required_error: "Password is required.",
+    }),
+    newPassword: string({
+      required_error: "New Password is required.",
+    }),
+  }),
+});
+
+export type ForgetPasswordType = TypeOf<typeof forgetPasswordSchema>["body"];
