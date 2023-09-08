@@ -1,0 +1,14 @@
+{
+    "redisXplorer.config": {
+        "profiles": [
+            {
+                "name": "redis",
+                "host": "redis-16826.c301.ap-south-1-1.ec2.cloud.redislabs.com",
+                "accessKey": "jSPjAPqR1S8zH0oiqnrDHhLCVJ5HibVP",
+                "filter": "*",
+                "port": "16826"
+            }
+        ],
+        "scanLimit": 200
+    }
+}
