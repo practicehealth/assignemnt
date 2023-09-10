@@ -6,7 +6,7 @@
     "references": [],
     "reference": 0,
     "serviceDate": "2023-07-12T00:00:00",
-    "resourceType": "procedure",
+    "resourceType": "Procedure",
     "_id": "123afieoaeife"
   },
   {
@@ -26,7 +26,7 @@
     "references": [],
     "reference": 0,
     "serviceDate": "2022-02-03T00:00:00",
-    "resourceType": "procedure",
+    "resourceType": "Procedure",
     "_id": "123afieoaeife"
   },
   {
@@ -100,7 +100,7 @@
     "references": [],
     "reference": 0,
     "serviceDate": "2023-09-11T00:00:00",
-    "resourceType": "procedure",
+    "resourceType": "Procedure",
     "_id": "123afieoaeife"
   },
   {
@@ -210,7 +210,7 @@
     "references": [],
     "reference": 10,
     "serviceDate": "2022-03-24T00:00:00",
-    "resourceType": "procedure",
+    "resourceType": "Procedure",
     "_id": "123afieoaeife"
   },
   {
@@ -220,7 +220,7 @@
     "references": [],
     "reference": 0,
     "serviceDate": "2023-09-24T00:00:00",
-    "resourceType": "procedure",
+    "resourceType": "Procedure",
     "_id": "123afieoaeife"
   },
   {
@@ -268,7 +268,7 @@
     "references": [],
     "reference": 0,
     "serviceDate": "2023-08-17T00:00:00",
-    "resourceType": "procedure",
+    "resourceType": "Procedure",
     "_id": "123afieoaeife"
   },
   {
@@ -301,7 +301,7 @@
     "references": [],
     "reference": 10,
     "serviceDate": "2022-03-23T00:00:00",
-    "resourceType": "procedure",
+    "resourceType": "Procedure",
     "_id": "123afieoaeife"
   },
   {
@@ -431,7 +431,7 @@
     "references": [],
     "reference": 0,
     "serviceDate": "2021-03-22T00:00:00",
-    "resourceType": "procedure",
+    "resourceType": "Procedure",
     "_id": "123afieoaeife"
   },
   {
@@ -585,7 +585,7 @@
     "references": [],
     "reference": 0,
     "serviceDate": "2023-05-08T00:00:00",
-    "resourceType": "procedure",
+    "resourceType": "Procedure",
     "_id": "123afieoaeife"
   },
   {
@@ -771,7 +771,7 @@
     "references": [],
     "reference": 0,
     "serviceDate": "2021-04-08T00:00:00",
-    "resourceType": "procedure",
+    "resourceType": "Procedure",
     "_id": "123afieoaeife"
   },
   {
@@ -931,7 +931,7 @@
     "references": [],
     "reference": 0,
     "serviceDate": "2020-06-06T00:00:00",
-    "resourceType": "procedure",
+    "resourceType": "Procedure",
     "_id": "123afieoaeife"
   },
   {
@@ -1011,7 +1011,7 @@
     "references": [],
     "reference": 0,
     "serviceDate": "2023-11-05T00:00:00",
-    "resourceType": "procedure",
+    "resourceType": "Procedure",
     "_id": "123afieoaeife"
   },
   {
@@ -1078,7 +1078,7 @@
     "references": [],
     "reference": 0,
     "serviceDate": "2020-08-07T00:00:00",
-    "resourceType": "procedure",
+    "resourceType": "Procedure",
     "_id": "123afieoaeife"
   },
   {
@@ -1121,7 +1121,7 @@
     "references": [],
     "reference": 62,
     "serviceDate": "2022-05-06T00:00:00",
-    "resourceType": "procedure",
+    "resourceType": "Procedure",
     "_id": "123afieoaeife"
   },
   {
@@ -1131,7 +1131,7 @@
     "references": [],
     "reference": 60,
     "serviceDate": "2020-10-02T00:00:00",
-    "resourceType": "procedure",
+    "resourceType": "Procedure",
     "_id": "123afieoaeife"
   },
   {
