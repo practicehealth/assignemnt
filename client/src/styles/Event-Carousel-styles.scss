@@ -1,0 +1,135 @@
+.carouselContainer {
+    margin: 0 auto;
+    width: 40vw;
+}
+
+.rsTypeBtn {
+    height: 60px;
+    width: 400px;
+    animation: anim alternate linear infinite 1s;
+}
+
+@keyframes anim {
+    0% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.carousel-section {
+    margin-top: 3vh;
+    padding: 10px;
+
+    .carousel-card {
+        margin: 0 auto;
+        width: 40vw;
+    }
+}
+
+.custom-card {
+    height: 400px;
+    width: 500px;
+    border: 1px solid rgb(149, 148, 148);
+    display: flex;
+    padding: 5px 10px;
+    flex-direction: column;
+    border-radius: 20px;
+    // box-shadow: 0px 0px 10px rgb(214, 209, 209),
+    //     -5px 0px 10px rgb(77, 75, 75);
+
+    .break-line {
+        height: 2px;
+        width: 100%;
+        border-top: 1px solid black;
+        // background-color: red;
+    }
+
+    .event-year-adjust {
+        display: flex;
+        align-items: center;
+        padding: 5px 0px;
+        justify-content: space-between;
+    }
+
+    .base-card-info {
+        display: flex;
+        flex-direction: column;
+
+        .date-info-section {
+            height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 30px;
+            margin: 5px 0;
+
+            .card-date {
+                height: 90px;
+                width: 120px;
+                box-shadow: 0px 2px 10px black;
+                border: 1px solid rgba(0, 0, 0, 0.494);
+                border-radius: 20px;
+                display: grid;
+                place-items: center;
+
+                span {
+                    width: 95%;
+                    padding: 5px 0;
+                    overflow: hidden;
+                    border-radius: 20px;
+                    text-align: center;
+                    font-weight: 600;
+                    margin-top: -1px;
+                    background-color: rgb(163, 229, 234);
+                }
+
+                p {
+                    font-weight: 600;
+                    font-size: 20px;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        .appointment-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            height: 60px;
+
+            h2 {
+                font-weight: 600;
+                font-size: 18px;
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            }
+
+            p {
+                font-weight: 300;
+                font-size: 14px;
+                font-style: italic;
+
+            }
+        }
+
+        .status-type-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            height: 80px;
+
+            span {
+                margin: 0 auto;
+            }
+
+            h3 {
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                font-size: 16px;
+            }
+        }
+    }
+}
