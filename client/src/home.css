@@ -1,8 +1,0 @@
-/* Base styles for card-container */
-.card-container {
-    display: flex;
-    justify-content: flex-start;
-    gap: 20px; /* Adjust the gap between cards as needed */
-    flex-wrap: wrap;
-  }
-  
