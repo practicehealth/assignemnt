@@ -1,0 +1,18 @@
+.signupSection{
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    box-sizing: border-box;
+    .form-signup {
+        z-index: +100;
+        height: 80vh;
+        width:30vw;
+    }
+}

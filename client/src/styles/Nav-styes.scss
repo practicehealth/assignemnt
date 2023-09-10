@@ -1,0 +1,13 @@
+.title {
+    height: 50px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.818);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+}
