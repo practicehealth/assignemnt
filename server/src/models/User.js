@@ -1,16 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // export mongoose user from here 
-import { Schema, model } from "mongoose";
-import { IUser } from "../types.ts";
-
-
-const userModel = new Schema<IUser> ({
+var mongoose_1 = require("mongoose");
+var userModel = new mongoose_1.Schema({
     "userName": {
-      "type": "String",
-      "default": null
+        "type": "String",
+        "default": null
     },
     "email": {
-      "type": "String",
-      "default": null
+        "type": "String",
+        "default": null
     },
     "password": {
         "type": "String",
@@ -40,8 +39,6 @@ const userModel = new Schema<IUser> ({
         "type": "String",
         "default": null,
     },
-  });
-
-
-const User = model('User', userModel);
-export default User;
+});
+var User = (0, mongoose_1.model)('User', userModel);
+exports.default = User;

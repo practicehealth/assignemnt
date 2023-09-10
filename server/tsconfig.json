@@ -1,21 +1,40 @@
 {
-    "compilerOptions": {
-      "target": "ESNext",
-      "module": "NodeNext",
-      "moduleResolution": "NodeNext",
-      "outDir": "./build",
-      "rootDir": "./src",
-      "strict": true,
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      // "baseUrl": "./src",
-      "skipLibCheck": true
-      // "paths": {
-      //   "@/": ["src/"]
-      // }
-    },
-    "include": ["src/*/.ts"],
-    "ts-node": {
-      "esm": true
-    }
+  "compilerOptions": {
+    "target": "es2016",                        
+    "module": "commonjs",    
+    "outDir": "./dist",     
+    "rootDir": "./src",                                  /* Allow 'import x from y' when a module doesn't have a default export. */
+    "esModuleInterop": true,                                  /* Disable resolving symlinks to their realpath. This correlates to the same flag in node. */
+    "forceConsistentCasingInFileNames": true,           
+    "strict": true,                                                          /* Skip type checking .d.ts files that are included with TypeScript. */
+    "skipLibCheck": true    ,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,                         /* Skip type checking all .d.ts files. */
+  },
+  "include": ["**/*.ts","src/*/.ts","src/**/*.ts", "server/**/*.ts", "local-auth/**/*.ts", "routes/**/*.ts", "models/**/*.ts"],
+  "ts-node": {
+    "esm": true
+  }
 }
+// {
+//   "compilerOptions": {
+//     "target": "ESNext",
+//     "module": "NodeNext",
+//     "moduleResolution": "NodeNext",
+//     "outDir": "./build",
+//     "rootDir": "./src",
+//     "strict": true,
+//     "esModuleInterop": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "allowImportingTsExtensions": true,
+//     // "baseUrl": "./src",
+//     "skipLibCheck": true
+//     // "paths": {
+//     //   "@/": ["src/"]
+//     // }
+//   },
+//   "include": ["src/**/*.ts", "server/**/*.ts"],
+//   "ts-node": {
+//     "esm": true
+//   }
+// // }
