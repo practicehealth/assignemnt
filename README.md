@@ -1,19 +1,23 @@
 # Healthcare app
 
-You are making a react/node web app for a patient, where they can create an account, and see their documents.
+a patient dashboard with their appointments login and signup and their records 
 
+### Note
 ### Instructions:
 
 - In .env of server folder:
 PORT=1234
-MONGOURI="mongodb+srv://miguel:miguel@cluster0.cfuki.mongodb.net/hospital?retryWrites=true&w=majority"
+- if 
+MONGOURI=`mongodb://${process.env.db_username}:${process.env.db_password}@ac-9d7nftr-shard-00-00.rczoqnd.mongodb.net:27017,ac-9d7nftr-shard-00-01.rczoqnd.mongodb.net:27017,ac-9d7nftr-shard-00-02.rczoqnd.mongodb.net:27017/Cluster0?ssl=true&replicaSet=atlas-7wup0e-shard-0&authSource=admin&retryWrites=true&w=majority`
+
+### Credentials 
+username : iamevans
+password : horcrux
+### add this to also in the .env of server
 SESSION_SECRET="iykyk"
 
 - In .env of client folder:
 VITE_BACKEND_URL="http://localhost:1234"
 
-- Added PostmanAPI backup just incase.
 
-### Yet to be finished:
-- Some hover box shadows
-- Forgot password implementation
+
