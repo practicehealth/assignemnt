@@ -1,0 +1,115 @@
+/* src/styles.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Add your custom styles below */
+
+/* Reset some default styles */
+/* html, body, h1, h2, p {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+} */
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Header styles */
+.header {
+  max-width: 100%;
+  background-color: #3498db;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Circular user icon */
+.user-icon {
+  background-color: rgb(201, 237, 237);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.teal-border {
+  width: 100%; /* Set the desired width */
+  height: 5px; /* Set the desired height */
+  background-color: rgb(201, 237, 237); /* Set the background color for the border */
+}
+/* Main content styles */
+.main-content {
+  padding: 1rem;
+  max-width: 100%;
+}
+
+/* Square cards styles */
+.card {
+  max-width: 50%;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+  
+/* Tabs styles */
+.tab {
+  background-color: #f4f4f4;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.tab.active {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* Event details styles */
+.event-details {
+  padding: 1rem;
+}
+
+/* Custom styles for slick slider arrows */
+.slick-prev::before,
+.slick-next::before {
+  font-size: 20px !important; /* Adjust the font size as needed */
+  font-weight: bolder !important;
+  font-stretch: condensed !important;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+  color: rgb(134, 247, 247) !important; /* Set the arrow color to green */
+}
+.slick-prev::before {
+  content: "<<" !important;
+}
+.slick-next::before {
+  content: ">>" !important;
+}
+
+.slick-prev {
+  left: 1 !important; /* Adjust the left positioning */
+}
+
+.slick-next {
+  right: 1 !important; /* Adjust the right positioning */
+}
+
+/* Add more styles as needed for specific components and elements */
+  
