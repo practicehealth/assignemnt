@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body,html{
+    height: 100%;
+    width: 100%;
+}
+
+
+#navbar{
+    height: 80px;
+    /* background-color: crimson; */
+    display: flex;
+    border-bottom: 4px solid rgb(154, 143, 143);
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+}
+
+#navbar .navbar-logo{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 3px solid #25b8b3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: black;
+    background-color: rgb(187, 236, 236);
+    
+}
+
+#navbar .companyname{
+    color: #25b8b3;
+    font-size: 50px;
+}
+#navbar .localicon{
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+
+}
+#navbar .localicon img{
+    height: 60px;
+    filter: invert(56%) sepia(89%) saturate(375%) hue-rotate(129deg) brightness(91%) contrast(88%);
+    padding-left: 20px;
+}
